@@ -1,4 +1,6 @@
-﻿namespace HW1
+﻿using HW1.ChessFigure;
+
+namespace HW1
 {
     internal class Program
     {
@@ -33,30 +35,26 @@
                     case MenuEnum.IntersectionSegments:
                         {
                             Console.WriteLine("Задание 2");
-                            Console.WriteLine("Введите первую точку отрезка 1");
-                            int.TryParse(Console.ReadLine(), out int a1);
-                            Console.WriteLine("Введите вторую точку отрезка 2");
-                            int.TryParse(Console.ReadLine(), out int b1);
-                            Console.WriteLine("Введите первую точку отрезка 2");
-                            int.TryParse(Console.ReadLine(), out int a2);
-                            Console.WriteLine("Введите вторую точку отрезка 2");
-                            int.TryParse(Console.ReadLine(), out int b2);
-                            Print(IntersectionSegments(new Segment(a1, b1), new Segment(a2, b2)));
+                            var points = FourPoint();
+                            Print(IntersectionSegments(new Segment(points.Item1, points.Item2), new Segment(points.Item3, points.Item4)));
                             break;
                         }
 
                     case MenuEnum.СheckerboardСolor:
                         {
                             Console.WriteLine("Задание 3");
-                            Console.WriteLine("Введите первую точку на доске");
-                            int.TryParse(Console.ReadLine(), out int a1);
-                            Console.WriteLine("Введите вторую точку на доске");
-                            int.TryParse(Console.ReadLine(), out int b1);
-                            Console.WriteLine("Введите третью точку");
-                            int.TryParse(Console.ReadLine(), out int a2);
-                            Console.WriteLine("Введите четвертую точку");
-                            int.TryParse(Console.ReadLine(), out int b2);
-                            SameColorPrint(IsSameColor(new ChessBoardPoint(a1,b1),new ChessBoardPoint(a2,b2)));
+                            var points = FourPoint();
+                            PrintBoolean(IsSameColor(new ChessBoardPoint(points.Item1, points.Item2), new ChessBoardPoint(points.Item3, points.Item4)));
+                            break;
+                        }
+
+                    case MenuEnum.ChessBishop:
+                        {
+                            Console.WriteLine("Задание 4");
+                            var points = FourPoint();
+                            BishopFigure bishopFigure = new BishopFigure(new ChessBoardPoint(points.Item1,points.Item2));
+                            bool result = bishopFigure.IsCorrectMovie(new ChessBoardPoint(points.Item3,points.Item4));
+                            PrintBoolean(result);
                             break;
                         }
 
@@ -72,8 +70,24 @@
             Console.WriteLine("\n");
         }
 
+        public static (int, int, int, int) FourPoint()
+        {
+            Console.WriteLine("Введите первую точку ");
+            int.TryParse(Console.ReadLine(), out int a1);
+            Console.WriteLine("Введите вторую точку ");
+            int.TryParse(Console.ReadLine(), out int b1);
+            Console.WriteLine("Введите первую точку ");
+            int.TryParse(Console.ReadLine(), out int a2);
+            Console.WriteLine("Введите вторую точку ");
+            int.TryParse(Console.ReadLine(), out int b2);
+            return (a1, b1, a2, b2);
+        }
 
-        public static void SameColorPrint(bool flag) => Console.WriteLine((flag ? "Да" : "Нет") + "\n");
+
+        
+
+
+        public static void PrintBoolean(bool flag) => Console.WriteLine((flag ? "Да" : "Нет") + "\n");
 
 
         public static bool IsSameColor(ChessBoardPoint point1, ChessBoardPoint point2)
