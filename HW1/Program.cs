@@ -29,19 +29,35 @@
                         string color2 = Console.ReadLine();
                         ColorMixerPrint(color1, color2);
                         break;
-
+                        
                     case MenuEnum.IntersectionSegments:
-                        Console.WriteLine("Задание 2");
-                        Console.WriteLine("Введите первую точку отрезка 1");
-                        int.TryParse(Console.ReadLine(), out int a1);
-                        Console.WriteLine("Введите вторую точку отрезка 2");
-                        int.TryParse(Console.ReadLine(), out int b1);
-                        Console.WriteLine("Введите первую точку отрезка 2");
-                        int.TryParse(Console.ReadLine(), out int a2);
-                        Console.WriteLine("Введите вторую точку отрезка 2");
-                        int.TryParse(Console.ReadLine(), out int b2);
-                        Print(IntersectionSegments(new Segment(a1, b1), new Segment(a2, b2)));
-                        break;
+                        {
+                            Console.WriteLine("Задание 2");
+                            Console.WriteLine("Введите первую точку отрезка 1");
+                            int.TryParse(Console.ReadLine(), out int a1);
+                            Console.WriteLine("Введите вторую точку отрезка 2");
+                            int.TryParse(Console.ReadLine(), out int b1);
+                            Console.WriteLine("Введите первую точку отрезка 2");
+                            int.TryParse(Console.ReadLine(), out int a2);
+                            Console.WriteLine("Введите вторую точку отрезка 2");
+                            int.TryParse(Console.ReadLine(), out int b2);
+                            Print(IntersectionSegments(new Segment(a1, b1), new Segment(a2, b2)));
+                            break;
+                        }
+                            
+                    case MenuEnum.СheckerboardСolor:
+                        {
+                            Console.WriteLine("Задание 3");
+                            Console.WriteLine("Введите первую точку на доске");
+                            int.TryParse(Console.ReadLine(), out int a1);
+                            Console.WriteLine("Введите вторую точку на доске");
+                            int.TryParse(Console.ReadLine(), out int b1);
+                            Console.WriteLine("Введите третью точку");
+                            int.TryParse(Console.ReadLine(), out int a2);
+                            Console.WriteLine("Введите четвертую точку");
+                            int.TryParse (Console.ReadLine(), out int b2);
+                            break;
+                        }
 
                 }
 

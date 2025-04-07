@@ -11,7 +11,7 @@ namespace HW1
         Exit = 0,
         ColorsMixer,
         IntersectionSegments,
-        ChessSquares,
+        СheckerboardСolor,
         ChessBishop,
         Queen,
         Horse,
