@@ -29,7 +29,7 @@
                         string color2 = Console.ReadLine();
                         ColorMixerPrint(color1, color2);
                         break;
-                        
+
                     case MenuEnum.IntersectionSegments:
                         {
                             Console.WriteLine("Задание 2");
@@ -44,7 +44,7 @@
                             Print(IntersectionSegments(new Segment(a1, b1), new Segment(a2, b2)));
                             break;
                         }
-                            
+
                     case MenuEnum.СheckerboardСolor:
                         {
                             Console.WriteLine("Задание 3");
@@ -55,7 +55,8 @@
                             Console.WriteLine("Введите третью точку");
                             int.TryParse(Console.ReadLine(), out int a2);
                             Console.WriteLine("Введите четвертую точку");
-                            int.TryParse (Console.ReadLine(), out int b2);
+                            int.TryParse(Console.ReadLine(), out int b2);
+                            SameColorPrint(IsSameColor(new ChessBoardPoint(a1,b1),new ChessBoardPoint(a2,b2)));
                             break;
                         }
 
@@ -69,6 +70,32 @@
         {
             foreach (int item in items) Console.Write(item + " ");
             Console.WriteLine("\n");
+        }
+
+
+        public static void SameColorPrint(bool flag) => Console.WriteLine((flag ? "Да" : "Нет") + "\n");
+
+
+        public static bool IsSameColor(ChessBoardPoint point1, ChessBoardPoint point2)
+        {
+            bool isBlackPoint1 = IsBlackPoint(point1);
+            bool isBlackPoint2 = IsBlackPoint(point2);
+            return isBlackPoint1 == isBlackPoint2;
+
+        }
+
+        public static bool IsBlackPoint(ChessBoardPoint point)
+        {
+            if (point.A % 2 == 0)
+            {
+                if (point.B % 2 == 0) return true;
+                else return false;
+            }
+            else
+            {
+                if (point.B % 2 != 0) return true;
+                else return false;
+            }
         }
 
 

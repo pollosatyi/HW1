@@ -37,5 +37,11 @@ namespace HW1
             }
 
         }
+
+        public ChessBoardPoint(int a, int b)
+        {
+            A = a;
+            B = b;
+        }
     }
 }
