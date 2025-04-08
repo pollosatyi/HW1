@@ -52,8 +52,27 @@ namespace HW1
                         {
                             Console.WriteLine("Задание 4");
                             var points = FourPoint();
-                            BishopFigure bishopFigure = new BishopFigure(new ChessBoardPoint(points.Item1,points.Item2));
-                            bool result = bishopFigure.IsCorrectMovie(new ChessBoardPoint(points.Item3,points.Item4));
+                            BishopFigure bishopFigure = new BishopFigure(new ChessBoardPoint(points.Item1, points.Item2));
+                            bool result = bishopFigure.IsCorrectMovie(new ChessBoardPoint(points.Item3, points.Item4));
+                            PrintBoolean(result);
+                            break;
+                        }
+                    case MenuEnum.Queen:
+                        {
+                            Console.WriteLine("Задание 5");
+                            var points = FourPoint();
+                            QueenFigure queenFigure = new QueenFigure(new ChessBoardPoint(points.Item1, points.Item2));
+                            bool result = queenFigure.IsCorrectMovie(new ChessBoardPoint(points.Item3, points.Item4));
+                            PrintBoolean(result);
+                            break;
+                        }
+
+                    case MenuEnum.Horse:
+                        {
+                            Console.WriteLine("Задание 6");
+                            var points = FourPoint();
+                            HorseFigure horseFigure = new HorseFigure(new ChessBoardPoint(points.Item1, points.Item2));
+                            bool result = horseFigure.IsCorrectMovie(new ChessBoardPoint(points.Item3, points.Item4));
                             PrintBoolean(result);
                             break;
                         }
@@ -84,7 +103,7 @@ namespace HW1
         }
 
 
-        
+
 
 
         public static void PrintBoolean(bool flag) => Console.WriteLine((flag ? "Да" : "Нет") + "\n");

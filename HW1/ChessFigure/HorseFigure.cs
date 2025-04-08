@@ -14,7 +14,8 @@ namespace HW1.ChessFigure
 
         public override bool IsCorrectMovie(ChessBoardPoint otherPoint)
         {
-            throw new NotImplementedException();
+            return Math.Abs(StartPoint.A - otherPoint.A) == 1 && Math.Abs(StartPoint.B - otherPoint.B) == 2
+                || Math.Abs(StartPoint.A - otherPoint.A) == 2 && Math.Abs(StartPoint.B - otherPoint.B) == 1;
         }
     }
 }
