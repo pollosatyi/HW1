@@ -76,6 +76,12 @@ namespace HW1
                             PrintBoolean(result);
                             break;
                         }
+                    case MenuEnum.FirstNumber:
+                        Console.WriteLine("Задание 7");
+                        Console.WriteLine("Введите число с плавающий точкой");
+                        var number = Console.ReadLine().Split(".")[1][0];
+                        Console.WriteLine(number);
+                        break;
 
                 }
 
