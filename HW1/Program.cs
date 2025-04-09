@@ -82,10 +82,41 @@ namespace HW1
                         var number = Console.ReadLine().Split(".")[1][0];
                         Console.WriteLine(number);
                         break;
-
+                    case MenuEnum.QuadraticEquation:
+                        Console.WriteLine("Задание 8");
+                        Console.WriteLine("Введите число a");
+                        double.TryParse(Console.ReadLine(), out double a);
+                        Console.WriteLine("Введите число b");
+                        double.TryParse(Console.ReadLine(), out double b);
+                        Console.WriteLine("Введите число c");
+                        double.TryParse(Console.ReadLine(), out double c);
+                        Console.WriteLine(QuadraticEquation(a, b, c));
+                        break;
                 }
 
             }
+        }
+
+
+        public static double Discriminant(double a, double b, double c)
+        {
+            return Math.Pow(b, 2) - (4 * a * c);
+
+        }
+
+        public static string QuadraticEquation(double a, double b, double c)
+        {
+            double discriminant = Discriminant(a, b, c);
+            if (discriminant < 0) return "Корней нет";
+            else if (discriminant == 0) return Math.Abs(-b / (2 * a)).ToString();
+            else
+            {
+                double firstRoot = (-b + Math.Sqrt(discriminant)) / (2 * a);
+                double secondRoot = (-b - Math.Sqrt(discriminant)) / (2 * a);
+                return $"{firstRoot} {secondRoot}";
+            }
+
+
         }
 
 
